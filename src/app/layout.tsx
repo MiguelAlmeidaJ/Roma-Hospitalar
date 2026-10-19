@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     locale: 'pt_BR',
   },
   robots: { index: true, follow: true },
-  icons: { icon: [{ url: '/marca/favicon_roma.jpg', type: 'image/jpeg' }], shortcut: '/marca/favicon_roma.jpg' },
+  icons: { icon: [{ url: '/marca/favicon_roma.png', type: 'image/png' }], shortcut: '/marca/favicon_roma.png' },
 };
 export const viewport: Viewport = { width: 'device-width', initialScale: 1, themeColor: '#032551' };
 
