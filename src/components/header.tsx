@@ -16,7 +16,7 @@ export function Header() {
   return <header className="site-header">
     <div className="container header-inner">
       <a className="header-logo" href="#inicio" aria-label="Roma Hospitalar, ir ao início" onClick={() => setOpen(false)}><Brand /></a>
-      <nav className={`main-nav ${open ? 'is-open' : ''}`} aria-label="Navegação principal">
+      <nav id="navegacao-mobile" className={`main-nav ${open ? 'is-open' : ''}`} aria-label="Navegação principal">
         {links.map(link => <a key={link.href} href={link.href} onClick={() => setOpen(false)}>{link.label}</a>)}
         <a className="mobile-nav-cta" href="#contato" onClick={() => setOpen(false)}>Solicitar atendimento <ArrowUpRight size={16} /></a>
       </nav>
