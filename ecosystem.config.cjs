@@ -3,7 +3,7 @@ module.exports = {
     name: 'roma-hospitalar',
     cwd: __dirname,
     script: 'node_modules/next/dist/bin/next',
-    args: 'start -p 4700 -H 127.0.0.1',
+    args: 'start -p 4700 -H 0.0.0.0',
     instances: 1,
     exec_mode: 'fork',
     autorestart: true,
