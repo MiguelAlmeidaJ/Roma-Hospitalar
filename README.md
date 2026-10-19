@@ -26,3 +26,7 @@ Copie `.env.example` para `.env.local` (desenvolvimento) ou `.env.production.loc
 
 ## Assets
 O logotipo é representado em SVG no componente `Brand`. Substitua pelos arquivos vetoriais oficiais quando disponíveis para garantir fidelidade exata à marca.
+
+## Arquivos da marca
+
+Coloque os arquivos oficiais em `public/marca/logo_roma.png` e `public/marca/favicon_roma.jpg` (nomes exatos, inclusive maiúsculas/minúsculas). O logo é utilizado no cabeçalho e no rodapé; o favicon é definido no metadata do Next.js. Esta pasta possui um `.gitkeep` para existir no clone antes do envio das imagens.

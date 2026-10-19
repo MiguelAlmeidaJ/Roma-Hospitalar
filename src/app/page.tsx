@@ -1,6 +1,7 @@
-import { ArrowDown, ArrowRight, ArrowUpRight, BadgeCheck, Box, Building2, Check, ClipboardList, Cross, HeartHandshake, Hospital, Mail, PackageCheck, ShieldCheck, Stethoscope, Truck } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, BadgeCheck, Box, Building2, Check, ClipboardList, Cross, HeartHandshake, Hospital, Mail, PackageCheck, ShieldCheck, Stethoscope, Truck } from 'lucide-react';
 import { Brand } from '@/components/brand';
 import { Header } from '@/components/header';
+import { BackToTop } from '@/components/back-to-top';
 
 const solutions = [
   { number: '01', icon: Stethoscope, name: 'Materiais hospitalares', description: 'Soluções para apoiar a rotina de instituições e profissionais de saúde, com foco nas necessidades de cada operação.' },
@@ -8,10 +9,10 @@ const solutions = [
   { number: '03', icon: ClipboardList, name: 'Cotações personalizadas', description: 'Converse com a nossa equipe e apresente a demanda da sua instituição para receber orientação comercial.' },
 ];
 const audiences = [
-  { icon: Hospital, name: 'Hospitais' },
-  { icon: Stethoscope, name: 'Clínicas' },
-  { icon: Building2, name: 'Instituições de saúde' },
-  { icon: HeartHandshake, name: 'Profissionais da área' },
+  { icon: Hospital, name: 'Hospitais', description: 'Apoio às demandas de suprimentos para o cuidado hospitalar.' },
+  { icon: Stethoscope, name: 'Clínicas', description: 'Soluções para diferentes rotinas e especialidades clínicas.' },
+  { icon: Building2, name: 'Instituições de saúde', description: 'Fornecimento pensado para a continuidade do atendimento.' },
+  { icon: HeartHandshake, name: 'Profissionais da área', description: 'Atenção às necessidades de quem trabalha cuidando de pessoas.' },
 ];
 const whatsApp = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '').replace(/\D/g, '');
 const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL || '';
@@ -30,8 +31,6 @@ export default function Home() {
         <p>Soluções em fornecimento hospitalar com atenção às necessidades de quem cuida de vidas todos os dias.</p>
         <div className="hero-actions"><a className="btn btn-teal" href="#solucoes">Conheça nossas soluções <ArrowUpRight size={18} /></a><a className="hero-secondary" href="#sobre">Saiba mais sobre nós <ArrowRight size={18} /></a></div>
       </div>
-      <a className="hero-scroll" href="#sobre"><ArrowDown size={16} /> Explore a Roma</a>
-      <div className="hero-index">01 / 04</div>
     </section>
 
     <section id="sobre" className="section about">
@@ -72,10 +71,21 @@ export default function Home() {
       </div></div>
     </section>
 
-    <section className="section audiences">
-      <div className="container">
-        <div className="center-heading"><span className="eyebrow"><span /> Para quem trabalhamos</span><h2>Ao lado de quem<br /><span>faz a saúde acontecer.</span></h2><p>Atendimento pensado para diferentes necessidades do setor.</p></div>
-        <div className="audiences-list">{audiences.map(a => <div className="audience" key={a.name}><a.icon size={30} strokeWidth={1.5}/><span>{a.name}</span></div>)}</div>
+    <section className="section audiences" aria-labelledby="audiences-heading">
+      <div className="container audiences-layout">
+        <div className="audiences-lead">
+          <span className="eyebrow"><span /> Para quem trabalhamos</span>
+          <h2 id="audiences-heading">Ao lado de quem <span>faz a saúde acontecer.</span></h2>
+          <p>Hospitais, clínicas e profissionais têm necessidades diferentes. Nosso compromisso é ouvir cada demanda e buscar caminhos para atendê-la.</p>
+          <a className="text-link" href="#contato">Conte com a Roma <ArrowUpRight size={17} /></a>
+        </div>
+        <div className="audiences-list">
+          {audiences.map(a => <article className="audience" key={a.name}>
+            <span className="audience-icon"><a.icon size={28} strokeWidth={1.6}/></span>
+            <ArrowUpRight className="audience-arrow" size={19} strokeWidth={1.5} aria-hidden="true" />
+            <div className="audience-info"><strong>{a.name}</strong><small>{a.description}</small></div>
+          </article>)}
+        </div>
       </div>
     </section>
 
@@ -90,6 +100,7 @@ export default function Home() {
       </div>
     </section>
 
-    <footer className="footer"><div className="container footer-main"><div className="footer-brand"><Brand inverted /><p>Distribuindo saúde, entregando resultado.</p></div><div className="footer-links"><h4>Navegue</h4><a href="#inicio">Início</a><a href="#sobre">Sobre nós</a><a href="#solucoes">Soluções</a><a href="#contato">Contato</a></div><div className="footer-links"><h4>Roma Hospitalar</h4><p>Fornecimento hospitalar com compromisso e atenção às pessoas.</p></div></div><div className="container footer-bottom"><span>© {new Date().getFullYear()} Roma Hospitalar. Todos os direitos reservados.</span><a href="#inicio">Voltar ao topo ↑</a></div></footer>
+    <footer className="footer"><div className="container footer-main"><div className="footer-brand"><Brand inverted /><p>Distribuindo saúde, entregando resultado.</p></div><div className="footer-links"><h4>Navegue</h4><a href="#inicio">Início</a><a href="#sobre">Sobre nós</a><a href="#solucoes">Soluções</a><a href="#contato">Contato</a></div><div className="footer-links"><h4>Roma Hospitalar</h4><p>Fornecimento hospitalar com compromisso e atenção às pessoas.</p></div></div><div className="container footer-bottom"><span>© {new Date().getFullYear()} Roma Hospitalar. Todos os direitos reservados.</span><span className="footer-credit">Desenvolvido por <a href="https://www.nivel3ti.com.br/" target="_blank" rel="noopener noreferrer">Nível 3 TI</a> — <a href="https://www.instagram.com/miguelalmeida.dev/" target="_blank" rel="noopener noreferrer">Miguel Almeida</a></span></div></footer>
+    <BackToTop />
   </main>;
 }
