@@ -14,7 +14,7 @@ Acesse http://localhost:4700.
 
 ## Produção com PM2
 ```bash
-npm ci
+npm install
 npm run build
 npm install -g pm2
 pm2 start ecosystem.config.cjs
